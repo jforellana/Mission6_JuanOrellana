@@ -1,0 +1,16 @@
+﻿@model NewMovie
+@{
+    ViewData["Title"] = "Movie Added";
+}
+<div class="text-center">
+    <h3 class="display-4">Your movie was added!</h3>
+    <br />
+    <p>Thank you! Your movie @Model.Title was added</p>
+
+    <br />
+    <br />
+    <p>If you want to add another movie to the database, please click here --><a asp-action="AddMovies" asp-controller="home">Add Movie</a></p>
+    <br />
+    <p>If you just want to go back to the home page, click here --> <a asp-action="Index" asp-controller="home">Home Page</a></p>
+
+</div>
