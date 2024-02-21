@@ -34,5 +34,10 @@ namespace Mission6_JuanOrellana.Controllers
             _context.SaveChanges();
             return View("Confirmation", movie);
         }
+
+        public IActionResult MList()
+        {
+            return View();
+        }
     }
 }
