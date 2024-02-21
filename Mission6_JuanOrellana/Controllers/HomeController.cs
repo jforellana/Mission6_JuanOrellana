@@ -24,6 +24,9 @@ namespace Mission6_JuanOrellana.Controllers
 
         public IActionResult AddMovies()
         {
+            ViewBag.Ratings = _context.Ratings
+                .OrderBy(x => x.RatingName)
+                .ToList();
             return View();
         }
 
@@ -33,6 +36,14 @@ namespace Mission6_JuanOrellana.Controllers
             _context.Movies.Add(movie);
             _context.SaveChanges();
             return View("Confirmation", movie);
+        }
+
+        public IActionResult Table()
+        {
+            var movieList = _context.Movies
+                .ToList();
+
+            return View(movieList);
         }
     }
 }
