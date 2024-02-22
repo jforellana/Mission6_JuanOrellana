@@ -6,6 +6,8 @@
 <h1>Add Movies to the Database</h1>
 
 <form method="post">
+    <input type="hidden" asp-for="MovieID" />
+    <br />
     <label asp-for="Category">Category</label>
     <input type="text" required asp-for="Category" />
     <br />
@@ -18,12 +20,12 @@
     <label asp-for="Director">Director</label>
     <input type="text" required asp-for="Director" />
     <br />
-    <label asp-for="Rating">Rating for this movie</label>
-    <select required asp-for="Rating">
-        <option value="G">G</option>
-        <option value="PG">PG</option>
-        <option value="PG-13">PG-13</option>
-        <option value="R">R</option>
+    <label asp-for="RatingId">Rating for this movie</label>
+    <select required asp-for="RatingId">
+        @foreach (Rating r in ViewBag.R)
+        {
+            <option value="@r.RatingId">@r.RatingName</option>
+        }
     </select>
     <br />
     <label asp-for="LentTo">Lent to</label>

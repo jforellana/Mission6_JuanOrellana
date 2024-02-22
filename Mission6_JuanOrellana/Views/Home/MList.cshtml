@@ -28,10 +28,13 @@
                 <td>@temp.Title</td>
                 <td>@temp.Year</td>
                 <td>@temp.Director</td>
-                <td>@temp.Rating</td>
+                @* <td>@temp.Rating</td> *@
+                <td>@temp.Rating?.RatingName</td>
                 <td>@temp.LentTo</td>
                 <td>@temp.Edited</td>
                 <td>@temp.Notes</td>
+                <td><a class=" btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@temp.MovieID">Edit</a></td>
+                <td><a class="btn btn-danger"asp-controller="Home" asp-action="Delete" asp-route-id="@temp.MovieID">Delete</a></td>
            </tr>
         
     </tbody> 
