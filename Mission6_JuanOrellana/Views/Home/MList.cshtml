@@ -14,8 +14,9 @@
             <td>Year</td>
             <td>Director</td>
             <td>Rating</td>
-            <td>Lent To</td>
             <td>Edited</td>
+            <td>Lent To</td>
+            <td>CopiedToPlex</td>
             <td>Notes</td>
         </tr>
         
@@ -24,14 +25,14 @@
     {
        <tbody>
            <tr>
-                <td>@temp.Category</td>
+                <td>@temp.Category?.CategoryName</td>
                 <td>@temp.Title</td>
                 <td>@temp.Year</td>
                 <td>@temp.Director</td>
-                @* <td>@temp.Rating</td> *@
-                <td>@temp.Rating?.RatingName</td>
-                <td>@temp.LentTo</td>
+                <td>@temp.Rating</td>
                 <td>@temp.Edited</td>
+                <td>@temp.LentTo</td>
+                <td>@temp.CopiedToPlex</td>
                 <td>@temp.Notes</td>
                 <td><a class=" btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@temp.MovieID">Edit</a></td>
                 <td><a class="btn btn-danger"asp-controller="Home" asp-action="Delete" asp-route-id="@temp.MovieID">Delete</a></td>

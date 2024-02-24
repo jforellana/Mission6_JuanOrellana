@@ -25,7 +25,7 @@ namespace Mission6_JuanOrellana.Controllers
 
         public IActionResult AddMovies()
         {
-            ViewBag.R = _context.Ratings.ToList();
+            ViewBag.Categories = _context.Categories.ToList(); // pass categories table so they can be listed in the dropdown
             return View();
         }
 
@@ -40,9 +40,8 @@ namespace Mission6_JuanOrellana.Controllers
         public IActionResult MList()
         {
             var lMovies = _context.Movies
-                .Include(m => m.Rating)
+                .Include(m => m.Category) //pass categories table so the name is visible instead of CategoryId
                 .ToList();
-
             return View(lMovies);
         }
 
@@ -50,7 +49,8 @@ namespace Mission6_JuanOrellana.Controllers
         {
             var movieToEdit = _context.Movies
                 .Single(x => x.MovieID == id);
-            ViewBag.R = _context.Ratings.ToList();
+
+            ViewBag.Categories = _context.Categories.ToList();
 
             return View("AddMovies", movieToEdit);
         }
@@ -69,7 +69,7 @@ namespace Mission6_JuanOrellana.Controllers
             var movieToDelete = _context.Movies
                 .Where(x => x.MovieID == id)
                 .FirstOrDefault();
-            //return View(movieToDelete);
+            
             return View(movieToDelete);
         } 
 
